@@ -36,14 +36,14 @@ Go to release page of Hadoop website to find a download URL for Hadoop 3.3.1:
 
 https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
 
-Extract the tar file to hadoop folder. I install it on different drive, in this case on `/mnt/e` drive folder.
+Extract the tar file to hadoop folder. I install it on different drive `/mnt/e`.
 Run the following command to create a hadoop folder under home folder:
 
-    mkdir ~/hadoop
+    mkdir /mnt/e/hadoop
 
 And then run the following command to unzip the binary package:
 
-    tar -xvzf hadoop-3.3.1.tar.gz -C ~/hadoop
+    tar -xvzf hadoop-3.3.1.tar.gz -C /mnt/e/hadoop
 
 Once it is unzipped, change the current directory to the hadoop folder:
 
