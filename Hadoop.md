@@ -1,4 +1,4 @@
-# Install Hadoop 3.3.1 on Windows 10 with WSL 2 Ubuntu 20.04
+# Install Hadoop 2.10.1 on Windows 10 with WSL 2 Ubuntu 20.04
 ### Prerequisites
 Follow the page below to enable WSL and then install one of the Linux systems from Microsoft Store.
 
@@ -32,9 +32,9 @@ Check the version installed:
 
 
 ### Download Hadoop binary
-Go to release page of Hadoop website to find a download URL for Hadoop 3.3.1:
+Go to release page of Hadoop website to find a download URL for Hadoop 2.10.1:
 
-https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
+https://downloads.apache.org/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz
 
 Extract the tar file to hadoop folder. I install it on different drive `/mnt/e`.
 Run the following command to create a hadoop folder under home folder:
@@ -43,11 +43,11 @@ Run the following command to create a hadoop folder under home folder:
 
 And then run the following command to unzip the binary package:
 
-    tar -xvzf hadoop-3.3.1.tar.gz -C /mnt/e/hadoop
+    tar -xvzf hadoop-2.10.1.tar.gz -C /mnt/e/hadoop
 
 Once it is unzipped, change the current directory to the hadoop folder:
 
-    cd /mnt/e/hadoop/hadoop-3.3.1/
+    cd /mnt/e/hadoop/hadoop-2.10.1/
 
 ### Configure passphraseless ssh
 This step is critical and please make sure you follow the steps.
@@ -178,13 +178,13 @@ Once the services are started, you can view the YARN resource manager web UI thr
 To make it easier to run Hadoop commands, add the following environment variables into .bashrc file in your home folder:
 
     export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-    export HADOOP_HOME=/home/user/hadoop/hadoop-3.3.1
+    export HADOOP_HOME=/home/user/hadoop/hadoop-2.10.1
     export PATH=$PATH:$HADOOP_HOME/bin
 
 Remember to change the *user* to your own user name in the Linux system.
 
 ### Summary
-Congratulations! You have successfully installed a single node Hadoop 3.3.1 cluster in your Ubuntu subsystem of Windows 10. It’s relatively easier as we don’t need to download or compile/build native Hadoop libraries.
+Congratulations! You have successfully installed a single node Hadoop 2.10.1 cluster in your Ubuntu subsystem of Windows 10. It’s relatively easier as we don’t need to download or compile/build native Hadoop libraries.
 
 BTW, WSL is not a virtual machine however it provides you almost the same experience as you would have in a native Linux system.
 
