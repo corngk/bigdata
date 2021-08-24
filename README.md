@@ -82,7 +82,7 @@ The steps are very similar to the ones in my previous post.
 
 Edit `etc/hadoop/hadoop-env.sh` file:
 
->`vi etc/hadoop/hadoop-env.sh'
+>`vi etc/hadoop/hadoop-env.sh`
 
 Set a JAVA_HOME environment variable:
 
