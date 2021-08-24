@@ -168,7 +168,7 @@ You can view the name node through the following URL:
 ### Run YARN daemon
 Run the following command to start YARN daemon:
 
-sbin/start-yarn.sh
+    sbin/start-yarn.sh
 
 Once the services are started, you can view the YARN resource manager web UI through the following URL:
 
@@ -186,6 +186,6 @@ Remember to change the *user* to your own user name in the Linux system.
 ### Summary
 Congratulations! You have successfully installed a single node Hadoop 2.10.1 cluster in your Ubuntu subsystem of Windows 10. It’s relatively easier as we don’t need to download or compile/build native Hadoop libraries.
 
-BTW, WSL is not a virtual machine however it provides you almost the same experience as you would have in a native Linux system.
+WSL is not a virtual machine however it provides you better experience as you would have in a native Linux system running on top of Windows 10 without worries about virtual machine.
 
 Happy coding!
