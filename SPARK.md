@@ -1,4 +1,10 @@
 # Apache Spark
+Apache Spark is a general-purpose data processing tool called a data processing engine. Used by data engineers and data scientists to perform extremely fast data queries on large amounts of data in the terabyte range. It is a framework for cluster-based calculations that competes with the classic Hadoop Map / Reduce by using the RAM available in the cluster for faster execution of jobs.
+
+In addition, Spark also offers the option of controlling the data via SQL, processing it by streaming in (near) real-time, and provides its own graph database and a machine learning library.  The framework offers in-memory technologies for this purpose, i.e. it can store queries and data directly in the main memory of the cluster nodes.
+
+Apache Spark is ideal for processing large amounts of data quickly. Spark’s programming model is based on Resilient Distributed Datasets (RDD), a collection class that operates distributed in a cluster. This open-source platform supports a variety of programming languages such as Java, Scala, Python, and R.
+
 ## Install Apache Spark on Windows 10 WDSL 2 Ubuntu 20.4
 
 ## Download Spark
@@ -143,7 +149,7 @@ Let's now try to code something
     scala> sc.parallelize(List(1,2,3)).map(x=>List(x,x,x)).collect
     res2: Array[List[Int]] = Array(List(1, 1, 1), List(2, 2, 2), List(3, 3, 3))
 
-Other samples
+Let's Do Some Other Examples
 
     scala> val parallel = sc.parallelize(1 to 9, 3)
     parallel: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[4] at parallelize at <console>:24
@@ -178,4 +184,57 @@ Other samples
     scala> parallel.intersection(par2).collect
     res12: Array[Int] = Array(5, 6, 7, 8, 9)
 
-That's all. Happy coding!
+## Reduce, Count, First, Take, and TakeSample Functions
+
+    scala> val names1 = sc.parallelize(List("abe", "abby", "apple"))
+    names1: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[0] at parallelize at <console>:24
+
+    scala> names1.reduce((t1, t2) => t1 + t2)
+    res0: String = abbyappleabe
+
+    scala> names1.flatMap(k => List(k.size)).reduce((t1, t2) => t1 + t2)
+    res2: Int = 12
+
+    scala> val names2 = sc.parallelize(List("apple", "beatty", "beatrice")).map(a => (a, a.size))
+    names2: org.apache.spark.rdd.RDD[(String, Int)] = MapPartitionsRDD[3] at map at <console>:24
+
+    scala> names2.flatMap(t => Array(t. _2)).reduce(_ + _)
+    res3: Int = 19
+
+    scala> sc.parallelize(List(1, 2, 3)).flatMap(x => List(x, x, x)).collect
+    res4: Array[Int] = Array(1, 1, 1, 2, 2, 2, 3, 3, 3)
+
+    scala> sc.parallelize(List(1, 2, 3)).map(x => List(x, x, x)).collect
+    res5: Array[List[Int]] = Array(List(1, 1, 1), List(2, 2, 2), List(3, 3, 3))
+
+    scala> val names2 = sc.parallelize(List("apple", "beatty", "beatrice"))
+    names2: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[9] at parallelize at <console>:24
+
+    scala> names2.count
+    res6: Long = 3
+
+    scala> names2.first
+    res7: String = apple
+
+    scala> names2.take(2)
+    res8: Array[String] = Array(apple, beatty)
+
+    scala> val teams = sc.parallelize(List("twins", "brewers", "cubs", "white sox", "indians", "bad news bears"))
+    teams: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[10] at parallelize at <console>:24
+
+    scala> teams.takeSample(true, 3)
+    res9: Array[String] = Array(indians, bad news bears, indians)
+
+    scala> teams.takeSample(true, 6)
+    res10: Array[String] = Array(brewers, brewers, cubs, bad news bears, indians, indians)
+
+    scala> teams.takeSample(true, 6)
+    res11: Array[String] = Array(bad news bears, cubs, brewers, white sox, bad news bears, bad news bears)
+
+    scala> val hockeyTeams = sc.parallelize(List("wild", "blackhowks", "red wings", "wild", "oilers", "whalers", "jets", "wild"))
+    hockeyTeams: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[15] at parallelize at <console>:24
+
+    scala> hockeyTeams.map(k => (k, 1)).countByKey
+    res13: scala.collection.Map[String,Long] = Map(wild -> 3, oilers -> 1, jets -> 1, red wings -> 1, blackhowks -> 1, whalers -> 1)
+
+That's all folks. Happy coding!
