@@ -94,7 +94,11 @@ Add the following configuration:
     <configuration>
         <property>
             <name>fs.defaultFS</name>
-            <value>hdfs://localhost:9000</value>
+            <value>hdfs://127.0.0.1:9000</value>
+        </property>
+        <property>
+            <name>hadoop.tmp.dir</name>
+            <value>(your-hadoop-folder)/hdata</value>
         </property>
     </configuration>
 
@@ -105,10 +109,18 @@ Edit etc/hadoop/hdfs-site.xml:
 Add the following configuration:
 
     <configuration>
-        <property>
-            <name>dfs.replication</name>
-            <value>1</value>
-        </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>(your-hadoop-folder)/hdata/dfs/namenode</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>(your-hadoop-folder)/hdata/dfs/datanode</value>
+    </property>
     </configuration>
 
 Edit file etc/hadoop/mapred-site.xml:
