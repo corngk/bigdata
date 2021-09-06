@@ -1,7 +1,7 @@
 # Big Data
 ### Big Data Resources
 
-This guide covers what you need to learn Big Data. I use Windows 10 running with WSL 2 using Ubuntu 20.04. This article includes the following software and tools:
+This guide covers what you need to learn Big Data. Fort this guide, I use Windows 10 running with WSL 2 using Ubuntu 20.04. This article includes the following software and tools:
 1. [Hadoop 2.10.1](Hadoop.md)
 2. [Apache Scoop](SCOOP.md)
 3. [Apache Flume](FLUME.md)
