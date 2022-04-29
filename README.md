@@ -1,5 +1,5 @@
 # Big Data
-### Big Data Resources
+## Big Data Resources
 
 This guide covers what you need to learn Big Data. Fort this guide, I use Windows 10 running with WSL 2 using Ubuntu 20.04. This article includes the following software and tools:
 1. [Hadoop 2.10.1](Hadoop.md)
@@ -16,7 +16,7 @@ This guide covers what you need to learn Big Data. Fort this guide, I use Window
 12. [Apache GraphX](GRAPHX.md)
 13. [Scala REPL](SCALA.md)
 
-### Summary
+## Summary
 Congratulations! You have successfully installed all you need to learn Big Data in your Ubuntu subsystem of Windows 10. It’s relatively easier as we don’t need to download or compile/build native Hadoop libraries.
 
 BTW, WSL is not a virtual machine however it provides you almost the same experience as you would have in a native Linux system.
